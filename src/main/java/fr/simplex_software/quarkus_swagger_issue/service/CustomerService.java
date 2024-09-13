@@ -36,6 +36,7 @@ public class CustomerService
   public CustomerDTO createCustomer(CustomerDTO customerDTO)
   {
     Customer customer = CustomerMapper.INSTANCE.toEntity(customerDTO);
+    customer.setId(null);
     customerRepository.persistAndFlush(customer);
     return CustomerMapper.INSTANCE.fromEntity(customer);
   }
